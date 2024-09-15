@@ -20,7 +20,7 @@ function Main() {
     const [isLocationRight, setIsLocationRight] = useState(false);
     const [isLocationBgBlue, setIsLocationBgBlue] = useState(false);
     const [openIndex, setOpenIndex] = useState(null);
-    
+
 
     const toggleContent = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -30,7 +30,9 @@ function Main() {
         setShowProducts(false);
         setShowButtons(true);
         setPackSize(size);
+
     };
+    // dispatch(addItem());
     const handleBackClick = () => {
         setShowProducts(true);
         setShowButtons(false);
@@ -162,7 +164,7 @@ function Main() {
 
                         {showProducts && (
                             <div className='flex gap-2 '>
-                                <div className='rounded-lg min-w-20 sm:w-36  hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(5)}  >
+                                <div className='rounded-lg min-w-20 sm:w-36  hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(5)} >
 
                                     <div className='rounded-lg w-28 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]'>
                                         <div className='text-white font-semibold bg-[#1D4ED8] text-center text-[13px] p-1'>
@@ -208,101 +210,101 @@ function Main() {
                                 </div>
                             </div>
                         )}
-                    </div>
-                    {showProducts && (
-                        <div>
-                            <button
-                                className='bg-[#1D4ED8] max-w-[450px]  rounded-md p-2 mt-8 text-white font-semibold w-full'
+                </div>
+                {showProducts && (
+                    <div>
+                        <button
+                            className='bg-[#1D4ED8] max-w-[450px]  rounded-md p-2 mt-8 text-white font-semibold w-full'
 
+                        >
+                            Next Choose Your Colors
+                        </button>
+                    </div>
+                )}
+
+                {!showProducts &&
+                    <div>
+                        <h2 className='text-lg font-bold'>Selected Items</h2>
+                        <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
+                            {selectedImages.map((image, index) => (
+                                <div key={index} className="relative flex justify-center items-center">
+                                    <img src={image} alt="Selected" className="w-24 h-24 object-cover rounded-lg" />
+                                    <button
+                                        onClick={() => handleRemoveImage(index)}
+                                        className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
+                                    >
+                                        &times;
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                        <div className='flex justify-between p-3 gap-10'>
+                            <button
+                                className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
+                                onClick={handleBackClick}
                             >
-                                Next Choose Your Colors
+                                Back
+                            </button>
+                            <button
+                                className='bg-blue-500 py-2 px-5 flex-1 text-white font-sans rounded-lg text-xl'>
+                                Add New Card
                             </button>
                         </div>
-                    )}
-
-                    {!showProducts &&
-                        <div>
-                            <h2 className='text-lg font-bold'>Selected Items</h2>
-                            <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
-                                {selectedImages.map((image, index) => (
-                                    <div key={index} className="relative flex justify-center items-center">
-                                        <img src={image} alt="Selected" className="w-24 h-24 object-cover rounded-lg" />
-                                        <button
-                                            onClick={() => handleRemoveImage(index)}
-                                            className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
-                                        >
-                                            &times;
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className='flex justify-between p-3 gap-10'>
-                                <button
-                                    className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
-                                    onClick={handleBackClick}
-                                >
-                                    Back
-                                </button>
-                                <button
-                                    className='bg-blue-500 py-2 px-5 flex-1 text-white font-sans rounded-lg text-xl'>
-                                    Add New Card
-                                </button>
-                            </div>
-                        </div>
-                    }
-                    <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>
-                        <div className='flex justify-center '>
-                            <h2>Complete Care for  Your  Birdie</h2>
-                        </div>
-
-                        <div className='bg-[#1D4ED8] p-2 flex justify-between'>
-                            <div className='flex gap-4'>
-                                <div
-                                    className={`relative border-2  flex items-center w-12 h-6 rounded-full overflow-hidden cursor-pointer ${isLocationBgBlue ? 'bg-[#1D4ED8]' : 'bg-gray-300'}`}
-                                    onClick={toggleLocationPosition}
-                                >
-                                    <div
-                                        className={`absolute border-2 rounded-full h-6 w-6 p-1 bg-white ${isLocationRight ? 'translate-x-6' : 'translate-x-0'} transition-transform duration-300`}
-                                    ></div>
-                                </div>
-                                <div className='font-extrabold text-white text-xl'>Birdie Care Plan </div>
-                            </div>
-                            <div className='font-extrabold text-white text-xl'>$4.99</div>
-
-                        </div>
-                        <div className='flex justify-between'>
-                            <div className='flex gap-2'>
-                                <div>
-                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6 w-6' /></div>
-                                <div className='md:text-[18px] leading-tight'>Hassle-Free Replacement</div>
-                            </div>
-                            <div className='flex gap-2'>
-                                <div>
-                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
-                                <div className='md:text-[18px] leading-tight'>Battery  Assurance</div>
-                            </div>
-                            <div className='flex gap-2'>
-                                <div>
-                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
-                                <div className='md:text-[18px] leading-tight'>No Question Asked</div>
-                            </div>
-                        </div>
                     </div>
-                    <div className='flex items-center space-x-2 justify-center '>
-                        <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
-                            <CiDeliveryTruck className='mr-2 text-blue-800 text-xl' />
-                            Ships Next Business Day
+                }
+                <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>
+                    <div className='flex justify-center '>
+                        <h2>Complete Care for  Your  Birdie</h2>
+                    </div>
+
+                    <div className='bg-[#1D4ED8] p-2 flex justify-between'>
+                        <div className='flex gap-4'>
+                            <div
+                                className={`relative border-2  flex items-center w-12 h-6 rounded-full overflow-hidden cursor-pointer ${isLocationBgBlue ? 'bg-[#1D4ED8]' : 'bg-gray-300'}`}
+                                onClick={toggleLocationPosition}
+                            >
+                                <div
+                                    className={`absolute border-2 rounded-full h-6 w-6 p-1 bg-white ${isLocationRight ? 'translate-x-6' : 'translate-x-0'} transition-transform duration-300`}
+                                ></div>
+                            </div>
+                            <div className='font-extrabold text-white text-xl'>Birdie Care Plan </div>
                         </div>
-                        <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
-                            <PiStarThin className='mr-2 text-blue-800 text-xl ' />
-                            30-Day Return Policy
+                        <div className='font-extrabold text-white text-xl'>$4.99</div>
+
+                    </div>
+                    <div className='flex justify-between'>
+                        <div className='flex gap-2'>
+                            <div>
+                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6 w-6' /></div>
+                            <div className='md:text-[18px] leading-tight'>Hassle-Free Replacement</div>
+                        </div>
+                        <div className='flex gap-2'>
+                            <div>
+                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
+                            <div className='md:text-[18px] leading-tight'>Battery  Assurance</div>
+                        </div>
+                        <div className='flex gap-2'>
+                            <div>
+                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
+                            <div className='md:text-[18px] leading-tight'>No Question Asked</div>
                         </div>
                     </div>
                 </div>
-
-
-
+                <div className='flex items-center space-x-2 justify-center '>
+                    <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
+                        <CiDeliveryTruck className='mr-2 text-blue-800 text-xl' />
+                        Ships Next Business Day
+                    </div>
+                    <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
+                        <PiStarThin className='mr-2 text-blue-800 text-xl ' />
+                        30-Day Return Policy
+                    </div>
+                </div>
             </div>
+
+
+
+        </div >
             <div className='md:px-28 '>
 
 
@@ -331,8 +333,8 @@ function Main() {
             </div>
             <Sec />
             <Third />
-            <Fourth/>
-            
+            <Fourth />
+
 
         </>
     );

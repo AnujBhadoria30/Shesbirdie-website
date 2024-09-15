@@ -8,13 +8,14 @@ import { CiUser } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiMenuBurger } from "react-icons/ci";
 import { useSelector } from "react-redux";
+import Card from './Card';
 
 const absoluteStyles = {
-  position: 'absolute',
-  top: '150px',  // Adjust as needed
-  left: '50%',
-  transform: 'translateX(-50%)',  // Centers the element horizontally
-  zIndex: 1000,  // Makes sure it stays on top of other elements
+    position: 'absolute',
+    top: '150px',  // Adjust as needed
+    left: '50%',
+    transform: 'translateX(-50%)',  // Centers the element horizontally
+    zIndex: 1000,  // Makes sure it stays on top of other elements
 };
 
 function Navbar() {
@@ -22,24 +23,28 @@ function Navbar() {
 
     const [toggle, setToggel] = useState(false);
     const [toggle2, setToggel2] = useState(false);
+    const [toggle3, setToggel3] = useState(false);
 
     const handleChange = () => {
         setToggel(!toggle);
     };
-    const toogle=()=>{
+    const toogle = () => {
         setToggel2(!toggle2);
     }
 
+    const click=()=>{
+        setToggel3(!toggle3)
+    }
     return (
         <>
             <div className='flex justify-between items-center border p-4 md:p-5'>
                 <div className='md:hidden'><CiMenuBurger /></div>
                 <div className='flex-shrink-0'>
-                    <img 
-                        src="https://www.shesbirdie.com/cdn/shop/files/birdie-logo.png?v=1690897129&%3Bwidth=225&em-format=avif&em-width=225" 
-                        alt="Logo" 
-                        className='w-24 md:w-32 lg:w-40 h-auto' 
-                    /> 
+                    <img
+                        src="https://www.shesbirdie.com/cdn/shop/files/birdie-logo.png?v=1690897129&%3Bwidth=225&em-format=avif&em-width=225"
+                        alt="Logo"
+                        className='w-24 md:w-32 lg:w-40 h-auto'
+                    />
                 </div>
                 <div className="justify-center items-center hidden sm:block text-xs md:text-sm">
                     <ul className="flex gap-4 md:gap-6 lg:gap-8 text-center font-serif">
@@ -51,11 +56,19 @@ function Navbar() {
                 </div>
                 <div className="flex items-center text-xs md:text-lg" >
                     <div className='p-1 md:p-2 text-lg md:text-xl'><CiUser /></div>
-                    <div className='  text-sm'>Card
+                    <div className='text-sm relative w-[200px] text-center'>
+                        Card
+                        <span
+                            className='text-sm font-mono text-pretty border-2 flex justify-center items-center shadow-xl cursor-pointer rounded-full h-6'
+                            onClick={click}
+                        >
+                            {cardItem.length}
+                        </span>
+                        <div  className='absolute w-full flex flex-wrap mr-12 p-4'>
 
-                    <span className='text-sm font-mono text-pretty border-2 flex justify-center items-center shadow-xl'>{(cardItem.length)}</span>
-                    
-                 
+                        {toggle3 ? <Card /> : ""}
+                        </div>
+
                     </div>
                 </div>
             </div>
