@@ -56,15 +56,15 @@ function Navbar() {
                 </div>
                 <div className="flex items-center text-xs md:text-lg" >
                     <div className='p-1 md:p-2 text-lg md:text-xl'><CiUser /></div>
-                    <div className='text-sm relative w-[200px] text-center'>
+                    <div className='text-sm relative w-[150px] text-center flex-col justify-center items-center '>
                         Card
                         <span
-                            className='text-sm font-mono text-pretty border-2 flex justify-center items-center shadow-xl cursor-pointer rounded-full h-6'
+                            className=' w-16 ml-10 text-sm font-mono text-pretty border-2  flex justify-center items-center shadow-xl cursor-pointer rounded-full '
                             onClick={click}
                         >
                             {cardItem.length}
                         </span>
-                        <div  className='absolute w-full flex flex-wrap mr-12 p-4'>
+                        <div  className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2 border-2 '>
 
                         {toggle3 ? <Card /> : ""}
                         </div>
