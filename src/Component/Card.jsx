@@ -5,7 +5,7 @@ function Card() {
   const cardItem = useSelector((store) => store.card.item);
 
   return (
-    <div className="flex flex-wrap  justify-center items-center shadow-2xl bg-[#E1FFFE]  border-2 ">
+    <div className="flex flex-wrap  justify-center items-center shadow-2xl bg-[#E1FFFE]  border-2  border-red-600">
       {cardItem.length > 0 ? (
         cardItem.map((item, index) => (
           <img
