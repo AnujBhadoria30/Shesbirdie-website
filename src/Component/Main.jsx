@@ -14,6 +14,11 @@ import { removeItem } from '../utils/cardslice';
 import Fivth from './Fivth';
 import Footer from './Footer';
 
+import { items } from '../utils/mockData'
+import { imgs } from '../utils/mockData'
+// import it from '../utils/mockData'
+import { colors } from '../utils/mockData'
+import { questions } from '../utils/mockData'
 function Main() {
     const [showProducts, setShowProducts] = useState(true);
     const [showButtons, setShowButtons] = useState(false);
@@ -22,12 +27,19 @@ function Main() {
     const [isLocationRight, setIsLocationRight] = useState(false);
     const [isLocationBgBlue, setIsLocationBgBlue] = useState(false);
     const [openIndex, setOpenIndex] = useState(null);
+    const dispatch = useDispatch()
 
+
+    const [isToggled, setIsToggled] = useState(false);
+
+    const handleToggle = () => {
+        dispatch(toggleCardState());
+      };
 
     const toggleContent = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const handleButtonClick = (size) => {
         setShowProducts(false);
         setShowButtons(true);
@@ -58,54 +70,8 @@ function Main() {
         setIsLocationRight(!isLocationRight);
         setIsLocationBgBlue(!isLocationBgBlue);
     };
-    const items = [
-        "https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_100x.jpg?v=1710253123",
-        "https://www.shesbirdie.com/cdn/shop/files/black_004a4cbe-ec66-41e9-a215-5d1cab651da7_100x.jpg?v=1710253122",
-        "https://www.shesbirdie.com/cdn/shop/files/coral_5705fa3c-67fe-4be7-9be7-71d5c6428c9c_100x.jpg?v=1710253123",
-        "https://www.shesbirdie.com/cdn/shop/files/rose-gold_e60ee125-d8d9-4a51-b844-58f748bbd7a6_100x.jpg?v=1710253125",
-        "https://www.shesbirdie.com/cdn/shop/files/indigo_6fa235ce-9f9f-496e-936f-df5ea9c34fde_100x.jpg?v=1710253125",
-        "https://www.shesbirdie.com/cdn/shop/files/purple_743565ea-b57c-4223-9ab3-454e5b8fa263_100x.jpg?v=1710253123",
-        "https://www.shesbirdie.com/cdn/shop/files/mblue_ca1d8126-fa92-4cee-8421-117c8565f9f2_100x.jpg?v=1710253124",
-        "https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_100x.jpg?v=1710253123",
-        "https://www.shesbirdie.com/cdn/shop/files/purple_743565ea-b57c-4223-9ab3-454e5b8fa263_100x.jpg?v=1710253123",
-    ];
-
-    const imgs = [
-        "https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05.jpg?v=1710253123&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/lemon_744e1f31-aebd-4396-9135-791bc3dc8e42.jpg?v=1710253123&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/coconut_2f8f107c-a82f-4ce8-a5cd-1c3368854125.jpg?v=1710253123&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/leopard_36ad1b70-c45c-46bf-8d15-1e6655cbd145.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/pdp-image-1_5f8bb3e3-df74-4e7a-8b49-2615d415d2b5.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/pdp-image-2_0027effd-87cb-4fa9-a586-bb028b193e37.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/pdp-image-3_96066cc8-5a91-4556-b6b0-5ca0d1c42e10.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/pdp-image-4_9272dc41-0adc-420b-9cb4-a54467bed393.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-        "https://www.shesbirdie.com/cdn/shop/files/pdp-image-5_04f68f23-1f0f-4562-9228-d244bfcc68db.jpg?v=1710253124&%3Bwidth=104&em-format=avif&em-width=104",
-    ];
-
-    const it = [
-        { title: 'Item 1', content: 'Content for item 1' },
-        { title: 'Item 2', content: 'Content for item 2' },
-        { title: 'Item 3', content: 'Content for item 3' },
-    ];
-    const colors = [
-        "#9FE2EC", "#373836", "#EE5B4D", "#E7B8AA", "#293691", "#D691FA", "#FFFFFF", "#FF69B4", "#D0B9F2"
-    ];
 
 
-    const questions = [
-        {
-            question: 'What`s included',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eligendi quaerat eveniet provident aperiam asperiores quidem vitae laborum fuga. Deserunt in nam debitis similique, magni ducimus. Ipsum aliquam exercitationem tempora?',
-        },
-        {
-            question: 'Watch Birdie in Action',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eligendi quaerat eveniet provident aperiam asperiores quidem vitae laborum fuga. Deserunt in nam debitis similique, magni ducimus. Ipsum aliquam exercitationem tempora?',
-        },
-        {
-            question: 'Shipping & Returns',
-            answer: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio eligendi quaerat eveniet provident aperiam asperiores quidem vitae laborum fuga. Deserunt in nam debitis similique, magni ducimus. Ipsum aliquam exercitationem tempora?',
-        },
-    ];
 
     return (
         <>
@@ -212,111 +178,112 @@ function Main() {
                                 </div>
                             </div>
                         )}
-                </div>
-                {showProducts && (
-                    <div>
-                        <button
-                            className='bg-[#1D4ED8] max-w-[450px]  rounded-md md:p-2 mt-8 text-white font-semibold w-full'>
-                            Next Choose Your Colors
-                        </button>
                     </div>
-                )}
-
-                {!showProducts &&
-                    <div>
-                        <h2 className='text-lg font-bold'>Selected Items</h2>
-                        <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
-                            {selectedImages.map((image, index) => (
-                                <div key={index} className="relative flex justify-center items-center">
-                                    <img src={image} alt="Selected" className="w-24 h-24 object-cover rounded-lg" />
-                                    <button
-                                        onClick={() => handleRemoveImage(index)}
-                                        className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
-                                    >
-                                        &times;
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                        <div className='flex justify-between p-3 gap-10'>
+                    {showProducts && (
+                        <div>
                             <button
-                                className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
-                                onClick={handleBackClick}
-                            >
-                                Back
-                            </button>
-                            <button
-                                className='bg-blue-500 py-2 px-5 flex-1 text-white font-sans rounded-lg text-xl'>
-                                Add New Card
+                                className='bg-[#1D4ED8] max-w-[450px]  rounded-md md:p-2 mt-8 text-white font-semibold w-full'>
+                                Next Choose Your Colors
                             </button>
                         </div>
-                    </div>
-                }
-                <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>
-                    <div className='flex justify-center '>
-                        <h2>Complete Care for  Your  Birdie</h2>
-                    </div>
+                    )}
 
-                    <div className='bg-[#1D4ED8] p-2 flex justify-between'>
-                        <div className='flex gap-4'>
-                            <div
-                                className={`relative border-2  flex items-center w-12 h-6 rounded-full overflow-hidden cursor-pointer ${isLocationBgBlue ? 'bg-[#1D4ED8]' : 'bg-gray-300'}`}
-                                onClick={toggleLocationPosition}
-                            >
-                                <div
-                                    className={`absolute border-2 rounded-full h-6 w-6 p-1 bg-white ${isLocationRight ? 'translate-x-6' : 'translate-x-0'} transition-transform duration-300`}
-                                ></div>
+                    {!showProducts &&
+                        <div>
+                            <h2 className='text-lg font-bold'>Selected Items</h2>
+                            <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
+                                {selectedImages.map((image, index) => (
+                                    <div key={index} className="relative flex justify-center items-center">
+                                        <img src={image} alt="Selected" className="w-24 h-24 object-cover rounded-lg" />
+                                        <button
+                                            onClick={() => handleRemoveImage(index)}
+                                            className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
+                                        >
+                                            &times;
+                                        </button>
+                                    </div>
+                                ))}
                             </div>
-                            <div className='font-extrabold text-white md:text-xl'>Birdie Care Plan </div>
+                            <div className='flex justify-between p-3 gap-10'>
+                                <button
+                                    className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
+                                    onClick={handleBackClick}
+                                >
+                                    Back
+                                </button>
+                                <button
+                                    onClick={handleToggle}
+                                 className="border-2 p-2 bg-gray-600">
+                                    Add New Card
+                                </button>
+                            </div>
                         </div>
-                        <div className='font-extrabold text-white md:text-xl'>$4.99</div>
+                    }
+                    <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>
+                        <div className='flex justify-center '>
+                            <h2>Complete Care for  Your  Birdie</h2>
+                        </div>
+
+                        <div className='bg-[#1D4ED8] p-2 flex justify-between'>
+                            <div className='flex gap-4'>
+                                <div
+                                    className={`relative border-2  flex items-center w-12 h-6 rounded-full overflow-hidden cursor-pointer ${isLocationBgBlue ? 'bg-[#1D4ED8]' : 'bg-gray-300'}`}
+                                    onClick={toggleLocationPosition}
+                                >
+                                    <div
+                                        className={`absolute border-2 rounded-full h-6 w-6 p-1 bg-white ${isLocationRight ? 'translate-x-6' : 'translate-x-0'} transition-transform duration-300`}
+                                    ></div>
+                                </div>
+                                <div className='font-extrabold text-white md:text-xl'>Birdie Care Plan </div>
+                            </div>
+                            <div className='font-extrabold text-white md:text-xl'>$4.99</div>
+
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex gap-2'>
+                                <div>
+                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974"
+                                        alt=""
+                                        className='mt-2 h-6 w-6 hidden md:block' />
+                                </div>
+                                <div className='leading-tight text-sm md:text-base'>Hassle-Free Replacement</div>
+                            </div>
+
+                            <div className='flex gap-2'>
+                                <div>
+                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974"
+                                        alt=""
+                                        className='mt-2 h-6 w-6 hidden md:block' />
+                                </div>
+                                <div className='leading-tight text-sm md:text-base'>Battery Assurance</div>
+                            </div>
+
+                            <div className='flex gap-2'>
+                                <div>
+                                    <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974"
+                                        alt=""
+                                        className='mt-2 h-6 w-6 hidden md:block' />
+                                </div>
+                                <div className='leading-tight text-sm md:text-base'>No Question Asked</div>
+                            </div>
+                        </div>
 
                     </div>
-                    <div className='flex justify-between'>
-  <div className='flex gap-2'>
-    <div>
-      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
-           alt="" 
-           className='mt-2 h-6 w-6 hidden md:block' />
-    </div>
-    <div className='leading-tight text-sm md:text-base'>Hassle-Free Replacement</div>
-  </div>
-  
-  <div className='flex gap-2'>
-    <div>
-      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
-           alt="" 
-           className='mt-2 h-6 w-6 hidden md:block' />
-    </div>
-    <div className='leading-tight text-sm md:text-base'>Battery Assurance</div>
-  </div>
-  
-  <div className='flex gap-2'>
-    <div>
-      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
-           alt="" 
-           className='mt-2 h-6 w-6 hidden md:block' />
-    </div>
-    <div className='leading-tight text-sm md:text-base'>No Question Asked</div>
-  </div>
-</div>
-
+                    <div className='flex items-center space-x-2 justify-center '>
+                        <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
+                            <CiDeliveryTruck className='mr-2 text-blue-800 text-xl' />
+                            Ships Next Business Day
+                        </div>
+                        <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
+                            <PiStarThin className='mr-2 text-blue-800 text-xl ' />
+                            30-Day Return Policy
+                        </div>
+                    </div>
                 </div>
-                <div className='flex items-center space-x-2 justify-center '>
-                    <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
-                        <CiDeliveryTruck className='mr-2 text-blue-800 text-xl' />
-                        Ships Next Business Day
-                    </div>
-                    <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
-                        <PiStarThin className='mr-2 text-blue-800 text-xl ' />
-                        30-Day Return Policy
-                    </div>
-                </div>
-            </div>
 
 
 
-        </div >
+            </div >
             <div className='md:px-32 '>
 
 
@@ -346,8 +313,8 @@ function Main() {
             <Sec />
             <Third />
             <Fourth />
-            <Fivth/>
-            <Footer/>
+            <Fivth />
+            <Footer />
 
 
         </>

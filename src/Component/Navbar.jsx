@@ -16,8 +16,9 @@ const absoluteStyles = {
 };
 
 function Navbar() {
-    const cardItem = useSelector((store) => store.card.item);
-
+    const card = useSelector((store) => store.card.isCardAdded);
+    console.log(card)
+    
     const [toggle, setToggel] = useState(false);
     const [toggle2, setToggel2] = useState(false);
     const [toggle3, setToggel3] = useState(false);
@@ -55,12 +56,13 @@ function Navbar() {
                     <div className='p-1 text-lg md:text-xl'><CiUser /></div>
                     <div className='text-sm relative w-[150px] text-center flex-col justify-center items-center '>
                         Card
-                        <span
-                            className=' w-16 ml-10 text-sm font-mono text-pretty border-2  flex justify-center items-center shadow-xl cursor-pointer rounded-full '
-                            onClick={click}
-                        >
-                            {cardItem.length}
-                        </span>
+                        {card && (
+        <span
+          className='w-16 ml-10 text-sm font-mono text-pretty border-2 flex justify-center items-center shadow-xl cursor-pointer rounded-full'
+        >
+          {card.length}
+        </span>
+      )}
                         <div  className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2  '>
 
                         {toggle3 ? <Card /> : ""}
