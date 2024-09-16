@@ -11,6 +11,8 @@ import { PiStarThin } from "react-icons/pi";
 
 import { addItem } from '../utils/cardslice';
 import { removeItem } from '../utils/cardslice';
+import Fivth from './Fivth';
+import Footer from './Footer';
 
 function Main() {
     const [showProducts, setShowProducts] = useState(true);
@@ -116,7 +118,7 @@ function Main() {
                     />
                     <div className="flex justify-between flex-wrap">
                         {imgs.map((item, index) => (
-                            <div key={index} className=' h-20 w-20 py-1 '>
+                            <div key={index} className='h-12 md:h-20 w-10 md:w-20 py-1 '>
                                 <img
                                     src={item}
                                     alt={`Thumbnail ${index}`}
@@ -128,9 +130,9 @@ function Main() {
                 </div>
 
                 <div className='px-4 space-y-3'>
-                    <h1 className='text-3xl md:text-4xl font-semibold'>BIRDIE</h1>
+                    <h1 className='text-xl md:text-4xl font-semibold'>BIRDIE</h1>
                     <h1 className='text-blue-900 font-bold md:text-xl text-sm'>⭐⭐⭐⭐ (10,197)</h1>
-                    <p className='text-base md:text-sm'>
+                    <p className='text-sm md:text-base '>
                         This small device is <span className='inline font-bold'>like having a fire alarm in your pocket</span>.
                         When you pull the pin, it flashes and beeps incredibly loud so you can get the attention of everyone around you.
                     </p>
@@ -166,7 +168,7 @@ function Main() {
                             <div className='flex gap-2 '>
                                 <div className='rounded-lg min-w-20 sm:w-36  hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(5)} >
 
-                                    <div className='rounded-lg w-28 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]'>
+                                    <div className='rounded-lg w-24 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]'>
                                         <div className='text-white font-semibold bg-[#1D4ED8] text-center text-[13px] p-1'>
                                             35% OFF + Mystery Gift
                                         </div>
@@ -181,7 +183,7 @@ function Main() {
 
                                 <div className='rounded-lg min-w-20 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]'>
 
-                                    <div className='rounded-lg w-28 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(3)}>
+                                    <div className='rounded-lg w-24 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(3)}>
                                         <div className='text-white font-semibold bg-[#1D4ED8] text-center text-[13px] p-1'>
                                             35% OFF + Mystery Gift
                                         </div>
@@ -196,7 +198,7 @@ function Main() {
 
                                 <div className='rounded-lg min-w-20 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]'>
 
-                                    <div className='rounded-lg w-28 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(1)}>
+                                    <div className='rounded-lg w-24 sm:w-36 border border-transparent hover:border-blue-700 hover:bg-[#CEFDF8]' onClick={() => handleButtonClick(1)}>
                                         <div className='text-white font-semibold bg-[#1D4ED8] text-center text-[13px] p-1'>
                                             35% OFF + Mystery Gift
                                         </div>
@@ -214,9 +216,7 @@ function Main() {
                 {showProducts && (
                     <div>
                         <button
-                            className='bg-[#1D4ED8] max-w-[450px]  rounded-md p-2 mt-8 text-white font-semibold w-full'
-
-                        >
+                            className='bg-[#1D4ED8] max-w-[450px]  rounded-md md:p-2 mt-8 text-white font-semibold w-full'>
                             Next Choose Your Colors
                         </button>
                     </div>
@@ -267,28 +267,40 @@ function Main() {
                                     className={`absolute border-2 rounded-full h-6 w-6 p-1 bg-white ${isLocationRight ? 'translate-x-6' : 'translate-x-0'} transition-transform duration-300`}
                                 ></div>
                             </div>
-                            <div className='font-extrabold text-white text-xl'>Birdie Care Plan </div>
+                            <div className='font-extrabold text-white md:text-xl'>Birdie Care Plan </div>
                         </div>
-                        <div className='font-extrabold text-white text-xl'>$4.99</div>
+                        <div className='font-extrabold text-white md:text-xl'>$4.99</div>
 
                     </div>
                     <div className='flex justify-between'>
-                        <div className='flex gap-2'>
-                            <div>
-                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6 w-6' /></div>
-                            <div className='md:text-[18px] leading-tight'>Hassle-Free Replacement</div>
-                        </div>
-                        <div className='flex gap-2'>
-                            <div>
-                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
-                            <div className='md:text-[18px] leading-tight'>Battery  Assurance</div>
-                        </div>
-                        <div className='flex gap-2'>
-                            <div>
-                                <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" alt="" className='mt-2 h-6  w-6' /></div>
-                            <div className='md:text-[18px] leading-tight'>No Question Asked</div>
-                        </div>
-                    </div>
+  <div className='flex gap-2'>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
+           alt="" 
+           className='mt-2 h-6 w-6 hidden md:block' />
+    </div>
+    <div className='leading-tight text-sm md:text-base'>Hassle-Free Replacement</div>
+  </div>
+  
+  <div className='flex gap-2'>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
+           alt="" 
+           className='mt-2 h-6 w-6 hidden md:block' />
+    </div>
+    <div className='leading-tight text-sm md:text-base'>Battery Assurance</div>
+  </div>
+  
+  <div className='flex gap-2'>
+    <div>
+      <img src="https://cdn.shopify.com/s/files/1/0259/5808/8792/files/hassle-free.png?v=1722597974" 
+           alt="" 
+           className='mt-2 h-6 w-6 hidden md:block' />
+    </div>
+    <div className='leading-tight text-sm md:text-base'>No Question Asked</div>
+  </div>
+</div>
+
                 </div>
                 <div className='flex items-center space-x-2 justify-center '>
                     <div className='flex items-center text-sm md:text-xl md:font-bold text-blue-800 '>
@@ -305,18 +317,18 @@ function Main() {
 
 
         </div >
-            <div className='md:px-28 '>
+            <div className='md:px-32 '>
 
 
-                <div className='px-2 ml-auto select-none w-full md:max-w-[500px] '>
+                <div className='px-2  ml-auto select-none w-full md:max-w-[500px] '>
                     {questions.map((item, index) => (
                         <div key={index}>
                             <div className='border-b flex justify-between items-center space-x-48  space-y-4'>
                                 <div className='flex space-x-2'>
-                                    <span className='py-1 text-sm'>{item.question}</span>
+                                    <span className='py-1 text-[12px] md:text-lg'>{item.question}</span>
                                 </div>
                                 <div
-                                    className={`py-2 cursor-pointer transition-transform duration-300 text-sm ${openIndex === index ? 'rotate-180' : ''}`}
+                                    className={`py-2 cursor-pointer transition-transform duration-300 text-[8px] md:text-sm ${openIndex === index ? 'rotate-180' : ''}`}
                                     onClick={() => toggleContent(index)}
                                 >
                                     <FaAngleDown />
@@ -334,6 +346,8 @@ function Main() {
             <Sec />
             <Third />
             <Fourth />
+            <Fivth/>
+            <Footer/>
 
 
         </>

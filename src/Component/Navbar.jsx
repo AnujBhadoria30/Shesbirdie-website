@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
-// Add this to your existing CSS or inline styles
 import React from 'react'
-// eslint-disable-next-line no-unused-vars
 import { useState } from 'react';
 import { CiUser } from "react-icons/ci";
-// import { IoIdCardOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiMenuBurger } from "react-icons/ci";
 import { useSelector } from "react-redux";
@@ -12,10 +9,10 @@ import Card from './Card';
 
 const absoluteStyles = {
     position: 'absolute',
-    top: '150px',  // Adjust as needed
+    top: '150px',
     left: '50%',
-    transform: 'translateX(-50%)',  // Centers the element horizontally
-    zIndex: 1000,  // Makes sure it stays on top of other elements
+    transform: 'translateX(-50%)',
+    zIndex: 1000,  
 };
 
 function Navbar() {
@@ -55,7 +52,7 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className="flex items-center text-xs md:text-lg" >
-                    <div className='p-1 md:p-2 text-lg md:text-xl'><CiUser /></div>
+                    <div className='p-1 text-lg md:text-xl'><CiUser /></div>
                     <div className='text-sm relative w-[150px] text-center flex-col justify-center items-center '>
                         Card
                         <span
@@ -64,7 +61,7 @@ function Navbar() {
                         >
                             {cardItem.length}
                         </span>
-                        <div  className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2 border-2 '>
+                        <div  className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2  '>
 
                         {toggle3 ? <Card /> : ""}
                         </div>

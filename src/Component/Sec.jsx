@@ -16,7 +16,7 @@ function Sec() {
                             <img src="https://www.shesbirdie.com/cdn/shop/files/icons_28b1a9dd-d742-4d62-b244-a0cfb30b68a9_800x.png?v=1698258748&em-format=avif" alt="" />
                         </div>
                     </div>
-                    <button className='bg-[#1D4ED8] flex justify-center items-center font-bold text-white w-full py-3'>Shop</button>
+                    <button className='bg-[#1D4ED8] flex justify-center items-center font-bold text-white w-full py-1 md:py-3'>Shop</button>
                 </div>
                 <div className='w-full md:w-1/2 py-5 px-8 '>
                 <video controls className='w-full'>

@@ -7,8 +7,8 @@ function Fourth() {
     <div className='flex md:px-24  flex-col xl:flex-row  '>
     <div className=' w-full lg:w-1/2  px-8 text-center space-y-5'>
     <div className='mt-28 '>
-        <h2 className='font-semibold text-3xl text-start'>How we Stack Up</h2>
-        <h3 className='text-start text-2xl font-serif text-gray-700'>Birdie takes the lead when stacked against other self-defense tools, offering ease of use, a non-violent approach, and more.</h3>
+        <h2 className='font-semibold md:text-3xl text-start'>How we Stack Up</h2>
+        <h3 className='text-start md:text-2xl font-serif text-gray-700'>Birdie takes the lead when stacked against other self-defense tools, offering ease of use, a non-violent approach, and more.</h3>
     </div>
     <div className="text-white bg-[#1D4ED8] p-2 font-bold ">Shop Now</div>
     <div>

@@ -8,8 +8,8 @@ function Third() {
             <div className='md:px-24 bg-[#1D4ED8]  flex-col xl:flex-row  '>
                 
                     <div className=' text-center md:pt-[50px] space-y-3  '>
-                        <h1 className='font-semibold text-white text-xl md:text-4xl'>Always Stay ready and carry confidence with  you wherever you go</h1>
-                        <h2 className='px-12 text-white font-semibold text-sm lg:text-lg'>
+                        <h1 className='font-semibold text-white text-sm md:text-4xl'>Always Stay ready and carry confidence with  you wherever you go</h1>
+                        <h2 className='px-12 text-white font-semibold text-sm md:text-lg'>
                             She’s Birdie is small but extremely loud and helps to deter attackers, allowing you to get away <br/>
                             safely. The piercingly loud alarm can capture someone's attention even from a considerable <br/>
                              distance.
