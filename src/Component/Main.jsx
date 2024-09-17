@@ -185,41 +185,47 @@ function Main() {
                         </div>
                     )}
 
-                    {!showProducts &&
-                        <div>
-                            <h2 className='text-lg font-bold'>Selected Items</h2>
-                            <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
-                                {selectedImages.map((image, index) => (
-                                    <div key={index} className="relative flex justify-center items-center">
-                                        <img src={image} alt="Selected" className="w-24 h-24 object-cover rounded-lg" />
-                                        <button
-                                            onClick={() => handleRemoveImage(index)}
-                                            className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
-                                        >
-                                            &times;
-                                        </button>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className='flex p-3 gap-10'>
-                                <button
-                                    className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
-                                    onClick={handleBackClick}
-                                >
-                                    Back
-                                </button>
-                                <button
-                                    onClick={selectedImages.length >= packSize ? handleToggle : null}
-                                    className={`border-2 p-2 flex flex-1 justify-center items-center text-white ${selectedImages.length >= packSize ? 'bg-[#1D4ED8]' : 'bg-[#AAB7EB]'
-                                        }`}
-                                >
-                                    Add New Card
-                                </button>
+{!showProducts && (
+  <div>
+    <h2 className="text-lg font-bold">Selected Items</h2>
+    <div className="flex gap-3 mt-4 h-[100px] p-2 w-full border-2 border-black">
+      {selectedImages.map((image, index) => (
+        <div key={index} className="relative flex justify-center items-center">
+          <img
+            src={image}
+            alt="Selected"
+            className="w-24 h-24 object-cover rounded-lg"
+          />
+          <button
+            onClick={() => handleRemoveImage(index)}
+            className="absolute top-0 right-0 bg-[#1D4ED8] text-white rounded-full h-5 w-5"
+          >
+            &times;
+          </button>
+        </div>
+      ))}
+    </div>
 
-                            </div>
-                            s
-                        </div>
-                    }
+    <div className="flex p-3 gap-10">
+      <button
+        className="bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl"
+        onClick={handleBackClick}
+      >
+        Back
+      </button>
+
+      <button
+        onClick={selectedImages.length >= packSize ? handleToggle : null}
+        className={`border-2 p-2 flex flex-1 justify-center items-center text-white ${
+          selectedImages.length >= packSize ? 'bg-[#1D4ED8]' : 'bg-[#AAB7EB]'
+        }`}
+      >
+        Add New Card
+      </button>
+    </div>
+  </div>
+)}
+
                     <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>
                         <div className='flex justify-center '>
                             <h2>Complete Care for  Your  Birdie</h2>
