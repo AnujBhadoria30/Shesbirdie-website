@@ -8,10 +8,12 @@ const cardSlice = createSlice({
     },
     reducers: {
         toggleCardState: (state) => {
-            state.isCardAdded = !state.isCardAdded;
+            state.isCardAdded = true;
+
           },
+          
         addItem:(state,action)=>{
-            state.item.push(action.payload)
+            state.item=action.payload
              
         },
         removeItem: (state, action) => {

@@ -30,11 +30,11 @@ function Main() {
     const dispatch = useDispatch()
 
 
-    const [isToggled, setIsToggled] = useState(false);
 
     const handleToggle = () => {
-        dispatch(toggleCardState());
-      };
+        dispatch(addItem(selectedImages))
+        // dispatch(toggleCardState());
+    };
 
     const toggleContent = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -54,7 +54,7 @@ function Main() {
     };
     const handleAddImage = (imageUrl) => {
         if (selectedImages.length < packSize) {
-            dispatch(addItem(imageUrl))
+            // dispatch(addItem(imageUrl))
             setSelectedImages([...selectedImages, imageUrl]);
         }
     };
@@ -70,9 +70,6 @@ function Main() {
         setIsLocationRight(!isLocationRight);
         setIsLocationBgBlue(!isLocationBgBlue);
     };
-
-
-
     return (
         <>
             <div className='flex md:px-28 py-2 flex-col xl:flex-row '>
@@ -204,7 +201,7 @@ function Main() {
                                     </div>
                                 ))}
                             </div>
-                            <div className='flex justify-between p-3 gap-10'>
+                            <div className='flex p-3 gap-10'>
                                 <button
                                     className='bg-[#1D4ED8] py-2 px-5 text-white font-sans rounded-lg text-xl'
                                     onClick={handleBackClick}
@@ -212,11 +209,15 @@ function Main() {
                                     Back
                                 </button>
                                 <button
-                                    onClick={handleToggle}
-                                 className="border-2 p-2 bg-gray-600">
+                                    onClick={selectedImages.length >= packSize ? handleToggle : null}
+                                    className={`border-2 p-2 flex flex-1 justify-center items-center text-white ${selectedImages.length >= packSize ? 'bg-[#1D4ED8]' : 'bg-[#AAB7EB]'
+                                        }`}
+                                >
                                     Add New Card
                                 </button>
+
                             </div>
+                            s
                         </div>
                     }
                     <div className='border rounded-lg border-blue-600  bg-[#F1FFFE] py-2 px-4 space-y-2'>

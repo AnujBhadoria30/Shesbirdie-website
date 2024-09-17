@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { CiUser } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiMenuBurger } from "react-icons/ci";
@@ -16,23 +15,21 @@ const absoluteStyles = {
 };
 
 function Navbar() {
-    const card = useSelector((store) => store.card.isCardAdded);
-    console.log(card)
-    
+    const cardItem = useSelector((store) => store.card.item);
+    console.log("CheckOut", cardItem);
+
     const [toggle, setToggel] = useState(false);
     const [toggle2, setToggel2] = useState(false);
     const [toggle3, setToggel3] = useState(false);
+    const [toggle4, setToggel4] = useState(false); // State for card dropdown
 
     const handleChange = () => {
         setToggel(!toggle);
     };
-    const toogle = () => {
-        setToggel2(!toggle2);
-    }
+    const toggleDropdown = () => {
+        setToggel4(!toggle4); // Toggle card dropdown
+    };
 
-    const click=()=>{
-        setToggel3(!toggle3)
-    }
     return (
         <>
             <div className='flex justify-between items-center border p-4 md:p-5'>
@@ -52,22 +49,29 @@ function Navbar() {
                         <li className='text-xs md:text-sm'>HOW IT WORKS</li>
                     </ul>
                 </div>
-                <div className="flex items-center text-xs md:text-lg" >
+                <div className="flex items-center text-xs md:text-lg">
                     <div className='p-1 text-lg md:text-xl'><CiUser /></div>
-                    <div className='text-sm relative w-[150px] text-center flex-col justify-center items-center '>
-                        Card
-                        {card && (
-        <span
-          className='w-16 ml-10 text-sm font-mono text-pretty border-2 flex justify-center items-center shadow-xl cursor-pointer rounded-full'
-        >
-          {card.length}
-        </span>
-      )}
-                        <div  className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2  '>
-
-                        {toggle3 ? <Card /> : ""}
-                        </div>
-
+                    <div className='text-sm relative w-[150px] text-center flex-col justify-center items-center'>
+                        <button className='shadow-xl border-2 rounded-lg' onClick={toggleDropdown}>
+                            <div className='px-2'>
+                                Card
+                                <h1>{cardItem.length}</h1>
+                            </div>
+                        </button>
+                        {
+                            toggle4 && cardItem.length > 0 ? ( 
+                                <div className='absolute w-full flex flex-wrap mr-12 p-2 space-y-2 bg-white shadow-xl rounded-lg'>
+                                    {cardItem.map((item, index) => (
+                                        <img
+                                            key={index}
+                                            src={item}
+                                            alt={`Image ${index}`}
+                                            className="w-16 h-16 rounded-full mx-2"
+                                        />
+                                    ))}
+                                </div>
+                            ) : null
+                        }
                     </div>
                 </div>
             </div>
@@ -102,3 +106,4 @@ function Navbar() {
 }
 
 export default Navbar;
+    
